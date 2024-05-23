@@ -1,0 +1,147 @@
+{% load static %}
+<style>
+    .carousel-inner {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+</style>
+<div class="flex md:flex-row flex-col p-2 sm:px-20 ">
+    <div class="lg:w-1/5 bg-custom bg-cover bg-center  flex items-center justify-center p-5 "
+         style="background-image: url('{% static 'images/bg-image-1.jpg' %}')">
+        <div class="text-white text-center">
+            <div class="mb-4">
+                <h1 class="text-2xl font-bold tracking-wider text-center">FAST</h1>
+                <h2 class="text-xl">Prototyping</h2>
+            </div>
+            <div class="space-y-6">
+                <div class="flex items-center justify-center space-x-4">
+                    <i class="ri-pcb-fill text-xl"></i>
+                    <span class="text-sm">PCB Manufacturing</span>
+                </div>
+                <hr class="border-orange-500 w-1/2 mx-auto">
+                <div class="flex items-center justify-center ">
+                    <i class="ri-cube-fill text-xl"></i>
+                    <span class="text-sm">3D Printing</span>
+                </div>
+                <hr class="border-orange-500 w-1/2 mx-auto">
+                <div class="flex items-center justify-center ">
+                    <i class="ri-scissors-fill text-2xl"></i>
+                    <span class="text-sm">Laser Cutting</span>
+                </div>
+                <hr class="border-orange-500 w-1/2 mx-auto">
+                <div class="flex items-center justify-center ">
+                    <a href="">
+                        <i class="ri-battery-fill text-2xl"></i>
+                        <span class="text-sm">Custom Battery Pack</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex items-center justify-center mx-auto my-3 sm:my-10">
+        <div class="w-full max-w-4xl overflow-hidden relative ">
+            <div id="carousel" class="carousel-inner flex ">
+                <div class="w-full flex-shrink-0">
+                    <img src="{% static 'images/image1.webp' %}"
+                         class="w-full object-center"
+                         width="1940"
+                         height="500"
+                         alt="Image 1">
+                </div>
+                <div class="w-full flex-shrink-0">
+                    <img src="{% static 'images/image2.webp' %}"
+                         class="w-full"
+                         width="800"
+                         height="400"
+                         alt="Image 2">
+                </div>
+                <div class="w-full flex-shrink-0">
+                    <img src="{% static 'images/image3.webp' %}"
+                         class="w-full"
+                         width="800"
+                         height="400"
+                         alt="Image 3">
+                </div>
+                <div class="w-full flex-shrink-0">
+                    <img src="{% static 'images/image4.webp' %}"
+                         class="w-full"
+                         width="800"
+                         height="400"
+                         alt="Image 4">
+                </div>
+                <div class="w-full flex-shrink-0">
+                    <img src="{% static 'images/image5.webp' %}"
+                         class="w-full"
+                         width="800"
+                         height="400"
+                         alt="Image 5">
+                </div>
+                <div class="w-full flex-shrink-0">
+                    <img src="{% static 'images/image6.webp' %}"
+                         class="w-full"
+                         width="800"
+                         height="400"
+                         alt="Image 6">
+                </div>
+                <div class="w-full flex-shrink-0">
+                    <img src="{% static 'images/image7.webp' %}"
+                         class="w-full"
+                         width="800"
+                         height="400"
+                         alt="Image 7">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function initCarousel(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            const images = carousel.children;
+            const totalImages = images.length;
+
+            // Clone first and last images for smooth looping
+            const firstImageClone = images[0].cloneNode(true);
+            const lastImageClone = images[totalImages - 1].cloneNode(true);
+            carousel.appendChild(firstImageClone);
+            carousel.insertBefore(lastImageClone, images[0]);
+
+            let index = 1; // Start from the first actual image
+            const totalItems = totalImages + 2; // Include cloned images
+
+            function slideCarousel() {
+                index++;
+                const translateX = -index * 100;
+                carousel.style.transition = 'transform 0.5s ease-in-out';
+                carousel.style.transform = `translateX(${translateX}%)`;
+
+                // Looping logic
+                if (index >= totalItems - 1) {
+                    setTimeout(() => {
+                        carousel.style.transition = 'none';
+                        index = 1;
+                        carousel.style.transform = `translateX(-${index * 100}%)`;
+                    }, 500); // Delay to match transition duration
+                }
+
+                if (index <= 0) {
+                    setTimeout(() => {
+                        carousel.style.transition = 'none';
+                        index = totalItems - 2;
+                        carousel.style.transform = `translateX(-${index * 100}%)`;
+                    }, 500); // Delay to match transition duration
+                }
+            }
+
+            setInterval(slideCarousel, 3000); // Change slide every 3 seconds
+
+            // Initial positioning
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+
+
+        initCarousel('carousel');
+    });
+</script>

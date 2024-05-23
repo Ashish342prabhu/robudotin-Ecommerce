@@ -1,0 +1,43 @@
+{% load static %}
+<section class="blogs">
+    <div class="blogs-head">
+    <h1 class="text-3xl mx-10 p-3 font-bold border-b-2 border-black w-fit">Blogs</h1>
+      <a href="http://">
+        <input class="view-butn" type="button" value="view all">
+      </a>
+    </div>
+    <div class="cards">
+        <article class="card">
+          <a href="http://">
+            <img src={% static "images/category/RPi-M1.jpg" %} alt="Raspberry Pi 5 Hat+ NVME" height="" weight="" >
+            <div class="card-content">
+                <h3>Raspberry Pi 5 M.2 Hat + NVME</h3>
+              </div>
+            </a>
+            </article>
+        <article class="card">
+          <a href="http://">
+            <img src={% static "images/category/RPi-M1.jpg" %} alt="DIY RC Car" height="" weight="" >
+            <div class="card-content">
+                <h3>DIY RC Car</h3>
+              </div>
+            </a>
+        </article>
+        <article class="card">
+          <a href="http://">
+              <img src={% static "images/category/RC-Transmitter-Blog-Thumbnail.jpg" %} alt="DIY RC Transmitter" height="" weight="" >
+              <div class="card-content">
+                <h3>DIY RC Transmitter</h3>
+              </div>
+            </a>
+        </article>
+        <article class="card">
+          <a href="http://">
+            <img src={% static "images/category/SmartElex-Sensors-Interfacing.jpg" %} alt="Non-contact Voltage Smart Multimeter" height="" weight="" >
+            <div class="card-content">
+                <h3>Non-Contact Voltage Smart Multimeter</h3>
+              </div>
+          </a>
+        </article>
+    </div>
+</section>

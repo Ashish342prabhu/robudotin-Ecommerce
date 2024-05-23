@@ -1,0 +1,133 @@
+{% load static %}
+<style>
+  .carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Transition for smooth sliding */
+  }
+</style>
+<div class="flex md:flex-row flex-col sm:mx-20 mx-5">
+<!-- First Slider -->
+<div class="flex  items-center justify-center mx-auto sm:my-10">
+  <div class="w-full max-w-4xl overflow-hidden relative">
+    <div id="carousel1" class="carousel-inner flex max-h-full">
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider1/CADDX.webp' %}" class="w-full object-center" alt="Image 1" width="" height="">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider1/ISDT-1.webp' %}" class="w-full object-center" alt="Image 2" width="" height="">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider1/Lumenier.jpg' %}" class="w-full object-center" alt="Image 3" width="" height="">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider1/Milk-V-Banner.webp' %}" class="w-full object-center" alt="Image 4" width="" height="">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider1/Milk-V-Banner.webp' %}" class="w-full object-center" alt="Image 5" width="" height="">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider1/Numakers-Filaments-1.webp' %}" class="w-full object-center" alt="Image 6" width="" height="">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider1/Particle-Launch-Mobile-Banner.webp' %}" class="w-full object-center" alt="Image 7" width="" height="">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider1/PMD-Flexx-2-VGA.webp' %}" class="w-full object-center" alt="Image 8" width="" height="">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider1/T-Zone.webp' %}" class="w-full object-center" alt="Image 9" width="" height="">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider1/Vega-Processor-1.webp' %}" class="w-full object-center" alt="Image 10" width="" height="">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Second Slider -->
+<div class="flex  items-center justify-center mx-auto sm:my-10">
+  <div class="w-full max-w-4xl overflow-hidden relative">
+    <div id="carousel2" class="carousel-inner flex mb-8 ">
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider2/HGL-R.webp' %}" class="w-full object-center" alt="Image 1" width="" height="">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider2/SAIER.webp' %}" class="w-full object-center" alt="Image 2" width="" height="">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider2/Toolkit-RC-2.webp' %}" class="w-full object-center" alt="Image 3" width="" height="">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider2/EDATEC.webp' %}" class="w-full object-center" alt="Image 4" width="" height="">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider2/Eelcrow-banner-3.webp' %}" class="w-full object-center" alt="Image 5" width="" height="">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider2/Sipeed-Banner-3.webp' %}" class="w-full object-center" alt="Image 6" width="" height="">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider2/HANYOUNG-NUX.webp' %}" class="w-full object-center" alt="Image 7" width="" height="">
+      </div>
+      <div class="w-full flex-shrink-0">
+        <img src="{% static 'images/Slider2/Digilent.webp' %}" class="w-full object-center" alt="Image 8" width="" height="">
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function initCarousel(carouselId) {
+      const carousel = document.getElementById(carouselId);
+      const images = carousel.children;
+      const totalImages = images.length;
+  
+      // Clone first and last images for smooth looping
+      const firstImageClone = images[0].cloneNode(true);
+      const lastImageClone = images[totalImages - 1].cloneNode(true);
+      carousel.appendChild(firstImageClone);
+      carousel.insertBefore(lastImageClone, images[0]);
+  
+      let index = 1; // Start from the first actual image
+      const totalItems = totalImages + 2; // Include cloned images
+  
+      function slideCarousel() {
+        index++;
+        const translateX = -index * 100;
+        carousel.style.transition = 'transform 0.5s ease-in-out';
+        carousel.style.transform = `translateX(${translateX}%)`;
+  
+        // Looping logic
+        if (index >= totalItems - 1) {
+          setTimeout(() => {
+            carousel.style.transition = 'none';
+            index = 1;
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+          }, 500); // Delay to match transition duration
+        }
+  
+        if (index <= 0) {
+          setTimeout(() => {
+            carousel.style.transition = 'none';
+            index = totalItems - 2;
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+          }, 500); // Delay to match transition duration
+        }
+      }
+  
+      setInterval(slideCarousel, 3000); // Change slide every 3 seconds
+  
+      // Initial positioning
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+    }
+  
+    // Initialize both carousels
+    initCarousel('carousel1');
+    initCarousel('carousel2');
+  });
+  
+</script>

@@ -1,0 +1,118 @@
+{% load static %}
+<header class="bg-gray-100">
+    <div class="flex flex-col md:flex-row justify-between py-2 px-4 md:px-10">
+        <div class="flex  justify-start mb-2 md:mb-0">
+            <span>1800 266 6123 |&nbsp;</span>
+            <span> Customer Support</span>
+        </div>
+        <div class="flex mob:flex-col mob:items-start mob:gap-1 justify-between  items-center md:justify-end  gap-5">
+            <div>
+                <span><a href="#accounts">My Orders</a> |</span>
+                <span><a href="#accounts">Track your order</a> |</span>
+                <span><a href="#accounts">My Account</a></span>
+            </div>
+            <div class="flex mob:justify-start justify-center md:justify-start gap-2 md:gap-5">
+                <a href="#facebook"><i class="ri-facebook-fill">|</i></a>
+                <a href="#linkedin"><i class="ri-instagram-fill">|</i></a>
+                <a href="#youtube"><i class="ri-linkedin-box-fill">|</i></a>
+                <a href="#twitter"><i class="ri-twitter-x-fill">|</i></a>
+                <a href="#instagram"><i class="ri-youtube-fill">|</i></a>
+            </div>
+        </div>
+    </div>
+</header>
+<nav class="bg-blue-950 xl:bg-white p-2">
+    <div class="flex flex-wrap items-center px-4 py-4 gap-4  text-gray-900 ">
+        <div class="logo order-2 sm:order-1">
+            <img src="{% static 'images/logo.webp' %}"
+                 alt="Logo"
+                 class="h-10 md:h-14 w-auto"
+                 width=" " height=" ">
+        </div>
+        <div class="flex items-center sm:ml-auto md:hidden order-1 sm:order-2 text-white sm:text-gray-900">
+            <i class="ri-menu-line text-2xl cursor-pointer"></i>
+        </div>
+        <div class="flex  items-center w-full md:w-auto gap-4 flex-grow order-3">
+            <input type="text"
+                   placeholder="Search for Products"
+                   class="w-full md:w-2/4 px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <select class="w-full md:w-1/4 text-black border border-gray-300 rounded-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option>All Categories</option>
+                <option>Category 1</option>
+                <option>Category 2</option>
+                <option>Category 3</option>
+                <option>Category 4</option>
+            </select>
+            <button type="button"
+                    class="text-2xl bg-blue-900 text-white p-2 px-5 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <i class="ri-search-line"></i>
+            </button>
+            <div class="flex items-center gap-4 text-2xl md:text-3xl absolute top-24 mob:top-32 right-10 sm:static  ">
+                <button type="button"
+                        class="text-white hover:text-gray-200 sm:text-gray-600 sm:hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i class="ri-heart-line"></i>
+                </button>
+                <button type="button"
+                        class="text-white hover:text-gray-200 sm:text-gray-600 sm:hover:text-gray-900 flex items-center space-x-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i class="ri-shopping-cart-line"></i>
+                    <span class="text-lg font-medium">₹0.00</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <ul class="text-white font-bold xl:text-black text-[10px] sm:text-base flex flex-wrap gap-2 lg:gap-4 px-4 lg:px-16 items-center justify-center ">
+        <li class="hidden  md:text-xl text-sm text-white bg-blue-900 p-2 rounded-t-lg px-10  2xl:block  2xl:absolute left-20 ">
+            <a href="#allcatagories">All Categories&nbsp; <i class="ri-menu-line"></i></a>
+        </li>
+        <li class="border-white p-1 border-2 xl:border-none   rounded-lg ml-0">
+            <a href="#home">Home</a>
+        </li>
+        <li class="border-white p-1 border-2 xl:border-none   rounded-lg">
+            <a href="#about-us">Shop now</a>
+        </li>
+        <li class="border-white p-1 border-2 xl:border-none   rounded-lg">
+            <a href="#new-arrivals">New Arrivals</a>
+        </li>
+        <li class="border-white p-1 border-2 xl:border-none   rounded-lg">
+            <a href="#services">Services</a>
+        </li class="border-white p-1 border-2 xl:border-none  rounded-lg">
+        <li class="border-white p-1 border-2 xl:border-none   rounded-lg">
+            <a href="#bulk-enquiry">Bulk Enquiry</a>
+        </li class="border-white p-1 border-2 xl:border-none   rounded-lg">
+        <li class="border-white p-1 border-2 xl:border-none s  rounded-lg">
+            <a href="#blogs">Blogs</a>
+        </li class="border-white p-1 border-2 xl:border-none   rounded-lg">
+        <li class="bg-blue-950 rounded-lg  text-white border-white p-1 border-2 xl:border-none sm:px-1">
+            <a href="#careers" class="flex items-center ">
+                <img width="20"
+                     height="20"
+                     src="https://img.icons8.com/ios-glyphs/30/FFFFFF/graduation-cap--v1.png"
+                     alt="graduation-cap--v1" />&nbsp;
+                <p>Careers</p>
+            </a>
+        </li>
+        <li class="border-white p-1 border-2 sm:border-none sm:p-0 rounded-lg  ">
+            <a href="#faq">FAQ</a>
+        </li>
+        <li class="bg-blue-950 rounded-lg  text-white border-white p-1 border-2 xl:border-none sm:px-1  ">
+            <a href="#sell">Sell on Robu</a>
+        </li>
+    </ul>
+</nav>
+
+{% comment %} menucontent {% endcomment %}
+{% comment %} <div class="w-screen h-screen fixed bg-transparent top-0 left-0 z-50 ">
+    <div class="menucontent  bg-white h-full w-3/4 text-xl border border-black" >
+        <div class="flex flex-col gap-2 p-4">
+            <a href="#home">Home</a>
+            <a href="#about-us">Shop now</a>
+            <a href="#new-arrivals">New Arrivals</a>
+            <a href="#services">Services</a>
+            <a href="#bulk-enquiry">Bulk Enquiry</a>
+            <a href="#blogs">Blogs</a>
+            <a href="#careers">Careers</a>
+            <a href="#faq">FAQ</a>
+            <a href="#sell">Sell on Robu</a>
+        </div>
+    </div>
+</div> {% endcomment %}
